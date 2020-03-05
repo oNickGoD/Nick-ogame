@@ -475,7 +475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!154 &971615241
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -612,6 +612,7 @@ GameObject:
   - component: {fileID: 1473934478}
   - component: {fileID: 1473934480}
   - component: {fileID: 1473934479}
+  - component: {fileID: 1473934481}
   m_Layer: 0
   m_Name: Nexus
   m_TagString: Finish
@@ -672,6 +673,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1473934481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473934477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2990c520056ea0542bc23f4d13643f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactRadius: 1.5
+  currentHealth: 0
+  stats:
+    maxHealth: 100
+    damage: 10
+    armor: 1
+    attackSpeed: 1
 --- !u!1 &1729808760
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +858,6 @@ GameObject:
   - component: {fileID: 1787048658}
   - component: {fileID: 1787048657}
   - component: {fileID: 1787048656}
-  - component: {fileID: 1787048659}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -873,6 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80df8d96601eca4a9d3d3404f8db45c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contactRadius: 0.5
   walkableLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -914,19 +934,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1787048659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787048654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87e6b9b8c6f6db14ebabf0b87350bde4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contactRadius: 0.45
 --- !u!1 &1805834690
 GameObject:
   m_ObjectHideFlags: 0
