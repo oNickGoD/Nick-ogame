@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using NavGame.Core;
+using NavGame.Managers;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class CreepController : CombatGameObject
@@ -18,6 +19,8 @@ public class CreepController : CombatGameObject
         {
             finalTarget = obj.GetComponent<DamageableGameObject>();
         }
+
+        onAttackHit += PlayEffects;
     }
     protected override void Update()
     {
@@ -31,12 +34,18 @@ public class CreepController : CombatGameObject
             AttackOnCooldown(finalTarget);
         }
     }
-    
+
     void Start()
     {
         if (finalTarget != null)
         {
             agent.SetDestination(finalTarget.transform.position);
         }
+    }
+
+
+    void PlayEffects(Vector3 position)
+    {
+        AudioManager.instance.Play("enemy-hit", position);
     }
 }
