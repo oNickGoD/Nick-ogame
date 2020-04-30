@@ -4,33 +4,42 @@ using NavGame.Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace NavGame.Core 
+namespace NavGame.Core
 {
-    [RequireComponent (typeof (NavMeshAgent))]
+    [RequireComponent(typeof(NavMeshAgent))]
 
-    public class AttackGameObject : TouchableGameObject 
+    public class AttackGameObject : TouchableGameObject
     {
         public OfenseStats ofenseStats;
         public float attackRange = 4f;
+        public float attackDelay = 0.5f;
+        public Transform castTransform;
         public string[] enemyLayers;
 
-        [SerializeField]        
+        [SerializeField]
         protected List<DamageableGameObject> enemiesToAttack = new List<DamageableGameObject>();
 
         protected NavMeshAgent agent;
         float cooldown = 0f;
         LayerMask enemyMask;
 
-        public OnAttackHitEvent onAttackHit;
+        public OnAttackStartEvent onAttackStart;
+        public OnAttackCastEvent onAttackCast;
+        public OnAttackStrikeEvent onAttackStrike;
 
         protected virtual void Awake()
         {
-            agent = GetComponent<NavMeshAgent> ();
+            agent = GetComponent<NavMeshAgent>();
             enemyMask = LayerMask.GetMask(enemyLayers);
+
+            if (castTransform == null)
+            {
+                castTransform = transform;
+            }
         }
-        protected virtual void Update () 
+        protected virtual void Update()
         {
-            DecreaseAttackCooldown ();
+            DecreaseAttackCooldown();
             UpdateAttack();
         }
 
@@ -48,33 +57,53 @@ namespace NavGame.Core
             }
         }
 
-        public void AttackOnCooldown (DamageableGameObject target) 
+        public void AttackOnCooldown(DamageableGameObject target)
         {
-            if (cooldown <= 0f) 
+            if (cooldown <= 0f)
             {
                 cooldown = 1f / ofenseStats.attackSpeed;
-                target.TakeDamage (ofenseStats.damage);
-                if (onAttackHit != null) 
+                if (onAttackStart != null)
                 {
-                    onAttackHit (target.transform.position);
+                    onAttackStart();
+                }
+                StartCoroutine(AttackAfterDelay(target, attackDelay));
+
+            }
+        }
+
+        IEnumerator AttackAfterDelay(DamageableGameObject target, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            if (target != null)
+            {
+                if (onAttackCast != null)
+                {
+                    onAttackCast(castTransform.position);
+                }
+
+                target.TakeDamage(ofenseStats.damage);
+                if (onAttackStrike != null)
+                {
+                    onAttackStrike(target.damageTransform.position);
                 }
             }
         }
 
-        void DecreaseAttackCooldown () 
+
+        void DecreaseAttackCooldown()
         {
-            if (cooldown == 0f) 
+            if (cooldown == 0f)
             {
                 return;
             }
             cooldown -= Time.deltaTime;
-            if (cooldown < 0f) 
+            if (cooldown < 0f)
             {
                 cooldown = 0f;
             }
         }
 
-        void OnTriggerEnter(Collider other) 
+        void OnTriggerEnter(Collider other)
         {
             if (enemyMask.Contains(other.gameObject.layer))
             {
@@ -87,12 +116,12 @@ namespace NavGame.Core
             }
         }
 
-     void OnTriggerExit(Collider other) 
+        void OnTriggerExit(Collider other)
         {
             if (enemyMask.Contains(other.gameObject.layer))
             {
-                 DamageableGameObject obj = other.transform.parent.GetComponent<DamageableGameObject>();
-                 enemiesToAttack.Remove(obj);
+                DamageableGameObject obj = other.transform.parent.GetComponent<DamageableGameObject>();
+                enemiesToAttack.Remove(obj);
             }
         }
 
