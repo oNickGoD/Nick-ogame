@@ -5,7 +5,7 @@ using NavGame.Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CreepController : AttackGameObject
+public class CreepController : InstantAttackerGameObject
 {
     DamageableGameObject finalTarget;
     protected override void Awake()
