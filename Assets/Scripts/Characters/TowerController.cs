@@ -5,7 +5,7 @@ using NavGame.Core;
 
 public class TowerController : ThrowerGameObject
 {
-    protected virtual void UpdateAttack()
+    protected override void UpdateAttack()
     {
         if (enemiesToAttack.Count > 0)
         {
