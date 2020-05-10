@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Navgame.Managers;
+using NavGame.Managers;
 
 public class Level01Manager : LevelManager
 {

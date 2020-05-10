@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using NavGame.Core;
-using Navgame.Managers;
+using NavGame.Managers;
 
 public class PlayerController : TouchableGameObject
 {
