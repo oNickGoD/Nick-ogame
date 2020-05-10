@@ -169,10 +169,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 30
+    m_MinSize: 2
     m_MaxSize: 78
     m_Alignment: 8
     m_AlignByGeometry: 1
@@ -2572,12 +2572,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - cost: 5
+  - cost: 4
     prefab: {fileID: 6611410637553216645, guid: 9b5ebe2ac6bbdd5478fe89532347849b,
       type: 3}
     waitTime: 5
     coolDown: 0
-  - cost: 3
+  - cost: 5
     prefab: {fileID: 7277294910251596418, guid: b3586af14f83d0745883ad9a7d4cb787,
       type: 3}
     waitTime: 2
@@ -2610,6 +2610,10 @@ MonoBehaviour:
   - {fileID: 775915534}
   - {fileID: 177293510}
   - {fileID: 391711243}
+  actionsCost:
+  - {fileID: 50571928}
+  - {fileID: 69668190}
+  - {fileID: 573240674}
 --- !u!1 &1787048654
 GameObject:
   m_ObjectHideFlags: 0
