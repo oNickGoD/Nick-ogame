@@ -1608,8 +1608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 123, y: 25}
-  m_SizeDelta: {x: 75, y: 72.3}
+  m_AnchoredPosition: {x: 144, y: 25}
+  m_SizeDelta: {x: 117.1, y: 72.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &668603093
 MonoBehaviour:
@@ -3353,6 +3353,7 @@ MonoBehaviour:
   badPrefab: {fileID: 7599525787107494927, guid: 9c0ca22c7e737174395c169e8a376e5a,
     type: 3}
   badWaves: 3
+  monstersPerWave: 2
   waitTimeFirstWave: 2
   waitTimeBetweenWaves: 4
 --- !u!114 &1777030003
@@ -3371,6 +3372,7 @@ MonoBehaviour:
   errorText: {fileID: 919771016}
   errorTime: 1.5
   coinText: {fileID: 639384912}
+  waveCountText: {fileID: 668603093}
   cooldownObjects:
   - {fileID: 775915534}
   - {fileID: 177293510}
