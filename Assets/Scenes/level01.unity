@@ -1132,7 +1132,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0/3
+  m_Text: 000
 --- !u!222 &500813395
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1218,13 +1218,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: -0, y: 0.8510814, z: -0.52503395, w: 0}
-  m_LocalPosition: {x: 26.3, y: 10, z: 23.7}
+  m_LocalRotation: {x: -0, y: 0.89093274, z: -0.4541354, w: 0}
+  m_LocalPosition: {x: 27.1, y: 7.26, z: 23.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 63.341003, y: -179.99998, z: 0}
+  m_LocalEulerAnglesHint: {x: 54.019, y: -179.99998, z: 0}
 --- !u!114 &534669906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,8 +1240,8 @@ MonoBehaviour:
   target: {fileID: 0}
   offset: {x: 0, y: -0.5, z: -0.4}
   zoomSpeed: 4
-  minZoom: 15
-  maxZoom: 25
+  minZoom: 5
+  maxZoom: 20
   minX: 8
   maxX: 32
   minZ: 9
@@ -3216,6 +3216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829765ec2a7ffd4bbc88aba0a80cffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinText: {fileID: 639384912}
   cooldownObjects:
   - {fileID: 775915534}
   - {fileID: 177293510}
