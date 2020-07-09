@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7971598661853154320}
   - component: {fileID: 7277294910251596423}
   - component: {fileID: 7277294910251596420}
+  - component: {fileID: 1163761488339594935}
   m_Layer: 0
   m_Name: Infantry
   m_TagString: Untagged
@@ -195,6 +196,19 @@ MonoBehaviour:
   enemyLayers:
   - Creep
   enemiesToAttack: []
+--- !u!114 &1163761488339594935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7277294910251596418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128250e497e453146bee38784d64e93a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothness: 0.1
 --- !u!1 &7903497960686717901
 GameObject:
   m_ObjectHideFlags: 0
