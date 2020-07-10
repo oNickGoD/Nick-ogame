@@ -6,13 +6,16 @@ namespace NavGame.Core
 {
     public class DamageableGameObject : TouchableGameObject
     {
-        
+
         public DefenseStats defenseStats;
         public int currentHealth;
         public Transform damageTransform;
         public OnDamageTakenEvent onDamageTaken;
         public OnHealthChangedEvent onHealthChanged;
         public OnDiedEvent onDied;
+        
+
+        bool isDead = false;
 
         protected virtual void Awake()
         {
@@ -48,10 +51,14 @@ namespace NavGame.Core
 
         public virtual void die()
         {
-            Destroy(gameObject);
-            if (onDied != null)
+            if (!isDead)
             {
-                onDied();
+                isDead = true;
+                Destroy(gameObject);
+                if (onDied != null)
+                {
+                    onDied();
+                }
             }
         }
     }

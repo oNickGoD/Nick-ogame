@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject[] cooldownObjects;
     public Text[] actionCosts;
     public GameObject defeatPanel;
+    public GameObject victoryPanel;
 
     Image[] cooldownImages;
 
@@ -28,6 +29,7 @@ public class UIManager : MonoBehaviour
         LevelManager.instance.onWaveUpdate += OnWaveUpdate;
         LevelManager.instance.onWaveCountdown += OnWaveCountdown;
         LevelManager.instance.onDefeat += OnDefeat;
+        LevelManager.instance.onVictory += OnVictory;
     }
 
     void Start()
@@ -90,6 +92,11 @@ public class UIManager : MonoBehaviour
     {
         LevelManager.instance.Pause();
         defeatPanel.SetActive(true);
+    }
+    void OnVictory()
+    {
+        LevelManager.instance.Pause();
+        victoryPanel.SetActive(true);
     }
     public void OnBtReloadClick()
     {
